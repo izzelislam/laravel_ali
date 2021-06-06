@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BelajarController;
 use App\Http\Controllers\LatihanController;
+use App\Http\Controllers\ResourceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,5 +48,10 @@ Route::group(['prefix' => 'latihan'], function(){
 
 // Route::redirect('/home', 'latihan/create', 301);
 Route::view('/welcome', 'welcome', ['name' => 'Rama']);
-
 Route::get('/tes/{nama}/{ttl}', [LatihanController::class,'tes'])->name('tes.get');
+
+Route::get('/belajar',[BelajarController::class,'store']);
+
+
+Route::resource('/resource-controller', ResourceController::class);
+
